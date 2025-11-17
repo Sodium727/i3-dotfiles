@@ -10,6 +10,7 @@ general {
 
 // order += "load"
 order += "cpu_temperature 0"
+// order += "memory"
 // order += "disk /"
 // order += "disk /home"
 // order += "wireless wlo1"
@@ -25,6 +26,10 @@ order += "tztime time"
 cpu_temperature 0 {
         format = "<span background='#bf316a'> %degrees°C </span>"
         path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+memory {
+        format = "hi"
 }
 
 // disk "/" {
@@ -49,7 +54,7 @@ volume master {
 
 battery 0 {
 	last_full_capacity = true
-        format = "<span background='#accc1c'> Battery: %percentage | %remaining </span>"
+        format = "<span background='#accc1c'>  %percentage | %remaining </span>"
         format_down = "No Battery"
         status_chr = "Charging"
         status_bat = "Battery"
@@ -60,11 +65,11 @@ battery 0 {
 }
 
 tztime date {
-        format = "<span background='#bbbbbb'> Date: %d-%m-%y </span>"
+        format = "<span background='#bbbbbb'> %d-%m-%y </span>"
 	timezone = "Asia/Ho_Chi_Minh"
 }
 
 tztime time {
-        format = "<span background='#eeeeee'> Time: %H:%M:%S </span>"
+        format = "<span background='#eeeeee'> %H:%M:%S </span>"
 	timezone = "Asia/Ho_Chi_Minh"
 }
